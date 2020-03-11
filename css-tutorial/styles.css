@@ -8,6 +8,9 @@ li {
   list-style-type: none;
 }
 .special {
-  color: orange;
+  color: pink;
   font-weight: bold;
+}
+li em {
+  color: rebeccapurple;
 }
