@@ -4,13 +4,12 @@ h1 {
 p {
     color: green;
 }
-li {
+li em{
   list-style-type: none;
+  color: rebeccapurple;
 }
 .special {
   color: pink;
   font-weight: bold;
 }
-li em {
-  color: rebeccapurple;
-}
+  
