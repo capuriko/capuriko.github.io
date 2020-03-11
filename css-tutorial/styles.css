@@ -4,6 +4,9 @@ h1 {
 p {
     color: green;
 }
+h1 + p {
+  font-size: 200%;
+}
 li em{
   list-style-type: none;
   color: rebeccapurple;
