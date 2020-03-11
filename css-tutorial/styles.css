@@ -15,4 +15,18 @@ li em{
   color: pink;
   font-weight: bold;
 }
+a:link {
+    color: orange;
+    font-weight: bold;
+}
+
+a:visited {
+    color: green;
+}
+
+a:hover {
+    text-decoration: none;
+}
+    
+
   
