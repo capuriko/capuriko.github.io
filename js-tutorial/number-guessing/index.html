@@ -85,6 +85,15 @@
       guessCount++;
       guessField.value = '';
       guessField.focus();
+        
+      function setGameOver() {
+      guessField.disabled = true;
+      guessSubmit.disabled = true;
+      resetButton = document.createElement('button');
+      resetButton.textContent = '新しいゲームを始める';
+      document.body.appendChild(resetButton);
+      resetButton.addEventListener('click', resetGame);
+}
 }
 
     </script>
