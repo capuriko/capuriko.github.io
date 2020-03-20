@@ -48,15 +48,12 @@
       const guesses = document.querySelector('.guesses');
       const lastResult = document.querySelector('.lastResult');
       const lowOrHi = document.querySelector('.lowOrHi');
-
       const guessSubmit = document.querySelector('.guessSubmit');
       const guessField = document.querySelector('.guessField');
       let guessCount = 1;
       let resetButton;
-      guessField.focus();
       
       function checkGuess() {
-      guessSubmit.addEventListener('click', checkGuess);
       let userGuess = Number(guessField.value);
       if (guessCount === 1) {
         guesses.textContent = '前回の予想: ';
@@ -85,6 +82,9 @@
       guessCount++;
       guessField.value = '';
       guessField.focus();
+     }
+      
+      guessSubmit.addEventListener('click', checkGuess);
         
       function setGameOver() {
       guessField.disabled = true;
@@ -105,23 +105,13 @@
       }
 
       resetButton.parentNode.removeChild(resetButton);
-
       guessField.disabled = false;
       guessSubmit.disabled = false;
       guessField.value = '';
       guessField.focus();
-
       lastResult.style.backgroundColor = 'white';
-
       randomNumber = Math.floor(Math.random() * 100) + 1;
 }
-}
-      guesses.textContent = 'Where is my paragraph?';
-      guesses.style.backgroundColor = 'yellow';
-      guesses.style.fontSize = '200%';
-      guesses.style.padding = '10px';
-      guesses.style.boxShadow = '3px 3px 6px black';
-
     </script>
   </body>
 </html>
