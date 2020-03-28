@@ -1,13 +1,11 @@
-
 // Final result should be 10.42
 // Add/update your code here
 
 let result = 7 + 13 / 9 + 7;
 let result2 = 100 / 2 * 6;
-let finalResult;
-let finalNumber;
-
-
+result *= result2;
+let finalResult = result.toFixed(2);
+let finalNumber = Number(finalResult);
 
 
 // Don't edit the code below here!
