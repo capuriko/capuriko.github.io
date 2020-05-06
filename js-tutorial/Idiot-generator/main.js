@@ -17,27 +17,34 @@ randomize.addEventListener('click', result);
 function result() {
 
   if(customName.value !== '') {
-    let name = customName.value;
-    
-    let newStory = storyText;
+    let name = 'Bob';
+  }else {
+    name = replace('Bob',customName.value);
+  }
+  
+  let newStory = storyText;
     
     let xItem = randomValueFromArray(insertX);
     let yItem = randomValueFromArray(insertY);
     let zItem = randomValueFromArray(insertZ);
     
-    newStory.replace(':insertx:',xItem);
+    let x = /:insertx:/gi;
+    
+    newStory.replace(x,xItem);
     newStory.replace(':inserty:',yItem);
     newStory.replace(':insertz:',zItem);
     
 
-  }
 
   if(document.getElementById("uk").checked) {
     let weight = Math.round(300);
     let temperature =  Math.round(94);
+    
+    replace(weight*0.0714286 + ' stone');
+    replace((temperature -32)/1.8 +  ' centigrade');
 
   }
 
-  story.textContent = ;
+  story.textContent = replace(textContent,newStory);
   story.style.visibility = 'visible';
 }
