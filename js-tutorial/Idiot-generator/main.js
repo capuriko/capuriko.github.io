@@ -8,20 +8,13 @@ function randomValueFromArray(array){
 }
 let storyText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.'
 
-let insertX[] = 'Willy the Goblin', 'Big Daddy', 'Father Christmas';
-let insertY[] = 'the soup kitchen', 'Disneyland', 'the White House';
-let insertZ[] = 'spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away';
+let insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
+let insertY = ['the soup kitchen', 'Disneyland', 'the White House'];
+let insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away'];
 
 randomize.addEventListener('click', result);
 
 function result() {
-
-  if(customName.value !== '') {
-    let name = 'Bob';
-  }else {
-    name = replace('Bob',customName.value);
-  }
-  
   let newStory = storyText;
     
     let xItem = randomValueFromArray(insertX);
@@ -30,21 +23,25 @@ function result() {
     
     let x = /:insertx:/gi;
     
-    newStory.replace(x,xItem);
-    newStory.replace(':inserty:',yItem);
-    newStory.replace(':insertz:',zItem);
+    newStory = newStory.replace(x,xItem);
+    newStory = newStory.replace(':inserty:',yItem);
+    newStory = newStory.replace(':insertz:',zItem);
     
-
-
+    if(customName.value !== '') {
+     const name = customName.value;
+     newStory = newStory.replace('Bob',name);
+    }
+  
   if(document.getElementById("uk").checked) {
-    let weight = Math.round(300);
-    let temperature =  Math.round(94);
+    let weight = Math.round(300*0.0714286) + 'stone';
+    let temperature =  Math.round((94-32)*5/9) + 'centigrade';
     
     replace(weight*0.0714286 + ' stone');
     replace((temperature -32)/1.8 +  ' centigrade');
-
+    newStory = newStory.replace('94 fahrenheit',temperature);
+    newStory = newStory.replace('300 pounds',weight);
   }
 
-  story.textContent = replace(textContent,newStory);
+  story.textContent = newStory;
   story.style.visibility = 'visible';
 }
