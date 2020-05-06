@@ -10,7 +10,7 @@ let storyText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. Whe
 
 let insertX[] = 'Willy the Goblin', 'Big Daddy', 'Father Christmas';
 let insertY[] = 'the soup kitchen', 'Disneyland', 'the White House';
-let insertZ[] = 'spontaneously combusted' 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away';
+let insertZ[] = 'spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away';
 
 randomize.addEventListener('click', result);
 
@@ -18,6 +18,17 @@ function result() {
 
   if(customName.value !== '') {
     let name = customName.value;
+    
+    let newStory = storyText;
+    
+    let xItem = randomValueFromArray(insertX);
+    let yItem = randomValueFromArray(insertY);
+    let zItem = randomValueFromArray(insertZ);
+    
+    newStory.replace(':insertx:',xItem);
+    newStory.replace(':inserty:',yItem);
+    newStory.replace(':insertz:',zItem);
+    
 
   }
 
